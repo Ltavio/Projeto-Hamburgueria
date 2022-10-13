@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { CardTotalDiv } from "./style";
 
 const CardTotal = ({ currentSale, setCurrentSale, setExclud }) => {
@@ -5,6 +6,7 @@ const CardTotal = ({ currentSale, setCurrentSale, setExclud }) => {
   const excluirTodos = () => {
     setCurrentSale([]);
     setExclud([]);
+    toast.success("Produtos removidos com sucesso!");
   };
   return (
     <CardTotalDiv>

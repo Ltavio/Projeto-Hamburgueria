@@ -4,6 +4,8 @@ import Header from "./components/Header";
 import ProductsList from "./components/ProductsList";
 import Cart from "./components/Carrinho";
 import { useEffect, useState } from "react";
+import { Toast } from "./components/toast/index";
+import { toast } from "react-toastify";
 
 function App() {
   const [produtos, setProdutos] = useState([]);
@@ -45,12 +47,13 @@ function App() {
         produtos.find((elem) => elem.id === idProduto),
       ]);
     } else {
-      console.log("nao pode adicionar duplicados");
+      toast.error("Não pode adicionar produto duplicado!");
     }
   };
 
   return (
     <div className="App">
+      <Toast />
       <Header showProducts={showProducts} setFilterSearch={setFilterSearch} />
       <div className="main">
         <ProductsList
